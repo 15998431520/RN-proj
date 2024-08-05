@@ -6,10 +6,12 @@ export default function Topbar(): React.JSX.Element {
   const [text, setText] = useState('')
   const dispatch = useListDispatch()
   function handleCreate() {
+    if (!text) return
     dispatch({
       type: 'add',
       text,
     })
+    setText('')
   }
 
   return (
@@ -47,6 +49,7 @@ export default function Topbar(): React.JSX.Element {
             width: '60%'
           }}
           onChangeText={txt => setText(txt)}
+          value={text}
         />
         <View
           style={{
