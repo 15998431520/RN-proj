@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
-
+import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Footer from './pages/Footer';
 import Topbar from './pages/Topbar';
 import Main from './pages/Main';
@@ -17,10 +8,8 @@ import ToDoProvider from './pages/ToDoContext'
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
-    // backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    backgroundColor: '#ff0',
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     flex: 1,
   };
 
