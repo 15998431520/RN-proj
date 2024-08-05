@@ -2,7 +2,7 @@ import React, { } from 'react'
 import { Text, View, ScrollView, Button } from 'react-native'
 import { useList, useListDispatch, Todo } from '../ToDoContext';
 
-function ToDoItem({ listItem }: { listItem: Todo }) {
+function ToDoItem({ listItem, index }: { listItem: Todo, index: number }) {
   const dispatch = useListDispatch()
   const { text, id } = listItem || {}
   return <View
@@ -13,6 +13,7 @@ function ToDoItem({ listItem }: { listItem: Todo }) {
       marginLeft: 20,
     }}
   >
+    <Text>{index + 1}、</Text>
     <Text>{text || ''}</Text>
     <Button
       title='删除'
@@ -37,7 +38,7 @@ export default function Main(): React.JSX.Element {
       }}
     >
       {
-        list?.map((item) => <ToDoItem listItem={item} />)
+        list?.map((item, index) => <ToDoItem listItem={item} index={index} />)
       }
     </ScrollView>
   )
