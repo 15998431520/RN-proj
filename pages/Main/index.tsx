@@ -1,6 +1,6 @@
 import React, { } from 'react'
 import { Text, View, ScrollView, Button } from 'react-native'
-import { useList, useListDispatch, Todo } from '../ToDoContext';
+import { useList, useListDispatch, Todo, useStatus } from '../ToDoContext';
 
 function ToDoItem({ listItem, index }: { listItem: Todo, index: number }) {
   const dispatch = useListDispatch()
@@ -27,7 +27,8 @@ function ToDoItem({ listItem, index }: { listItem: Todo, index: number }) {
 }
 
 export default function Main(): React.JSX.Element {
-  const list = useList()
+  const { status } = useStatus()
+  const list = useList()?.filter(item => item.status === status)
   return (
     <ScrollView
       style={{

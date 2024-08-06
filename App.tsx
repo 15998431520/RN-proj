@@ -4,6 +4,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Footer from './pages/Footer';
 import Topbar from './pages/Topbar';
 import Main from './pages/Main';
+import Tabbar from './pages/Tabbar';
 import ToDoProvider from './pages/ToDoContext'
 
 function App(): React.JSX.Element {
@@ -21,6 +22,7 @@ function App(): React.JSX.Element {
       />
       <ToDoProvider>
         <Topbar />
+        <Tabbar />
         <Main />
         <Footer />
       </ToDoProvider>
